@@ -1,6 +1,8 @@
 package rocks.zipcode.io.fundamentals;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -13,10 +15,52 @@ public class StringUtils {
      */
     public static Collection<String> getAllCasings(String string) {
         // get length of string
+
+        Integer[] arr = new Integer[string.length()];
+
+
+      int len=   string.length();
+        String eleman = "";
+        int arrayindex = 0;
+
         // get range of length
-        // get power-set of range
+
+
+
+
+          for (int i = 0; i <(int) Math.pow(2,string.length()) ; i++) {
+
+
+
+              for (int k = string.length() -1; k >= 0; k--) {
+
+                  String index = ((i >> k) & 1) == 1 ? "1" : "0";
+
+                  if(index == "1"){
+                      eleman += string.charAt(arrayindex);
+
+
+
+
+                  }
+                  arrayindex++;
+              }
+
+
+          }
+
+
+          // get power-set of range
+
+
+
 
         // for every set in power-set
+
+      char [] crr=  upperCaseIndices(eleman,arr).toCharArray();
+
+
+
             // uppercase indices of string using set
         return null;
     }
@@ -27,8 +71,17 @@ public class StringUtils {
      * @return near-identical string whose characters at specified indices are capitalized
      */
     public static String upperCaseIndices(String string, Integer... indices) {
-        return null;
+   String newString="";
+
+        for (int i = 0; i < indices.length; i++) {
+
+
+            newString= string.replace(string.charAt(indices[i]), Character.toUpperCase(string.charAt(indices[i])));
+        }
+        return newString;
+
     }
+
 
     /**
      * @param stringToBeManipulated - string to be evaluated
@@ -37,7 +90,11 @@ public class StringUtils {
      * @return near-identical string with `valueToBeInserted` inserted at `index`
      */
     public static String insertAtIndex(String stringToBeManipulated, String valueToBeInserted, Integer index) {
-        return null;
+
+        StringBuffer str = new StringBuffer(stringToBeManipulated);
+      str.insert(index,valueToBeInserted);
+
+        return str.toString();
     }
 
     /**
@@ -47,6 +104,9 @@ public class StringUtils {
      * @return near-identical string with character at `index` replaced with `replacementValue`
      */
     public static String replaceAtIndex(String stringToBeManipulated, Character replacementValue, Integer index) {
-        return null;
+        StringBuffer str = new StringBuffer(stringToBeManipulated);
+       str.setCharAt(index,replacementValue);
+
+        return str.toString();
     }
 }

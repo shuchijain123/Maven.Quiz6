@@ -8,7 +8,16 @@ public class GenericUtils {
      * @param <T>        - type of collection
      * @return array with contents identical to `collection`
      */
-    public static <T> T[] toArray(Collection<T> collection) {
-        return null;
+    public static <T> T[] toArray(Collection<T> collection){
+
+        T[] array = (T[]) new Object[collection.size()];
+
+
+
+
+        return collection.toArray(array);
+
+
+
     }
 }
