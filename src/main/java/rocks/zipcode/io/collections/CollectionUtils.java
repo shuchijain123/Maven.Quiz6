@@ -56,14 +56,13 @@ public class CollectionUtils {
      */
     public static Collection<? extends Collection<?>> nest(Collection<?>... collections) {
 
+     List list = new ArrayList< >();
 
 
 
 
-            //return new JoinedCollectionView<Collection<? extends Collection<?>>(collections);
-
-        return null;
-        }
+    return (Collection<? extends Collection<?>>) Arrays.asList(collections).parallelStream().collect(Collectors.toCollection(() -> list));
+    }
 
 
 
@@ -74,6 +73,9 @@ public class CollectionUtils {
      * @return a single collection containing the aggregate contents of each collection passed in as an argument
      */
     public static Collection<?> flatten(Collection<?>... collections) {
+
+
+
         return null;
     }
 }

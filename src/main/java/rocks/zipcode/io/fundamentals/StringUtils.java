@@ -76,7 +76,9 @@ public class StringUtils {
         for (int i = 0; i < indices.length; i++) {
 
 
-            newString= string.replace(string.charAt(indices[i]), Character.toUpperCase(string.charAt(indices[i])));
+            newString=  string.replace(string.charAt(indices[i]), Character.toUpperCase(string.charAt(indices[i])));
+             string= newString;
+
         }
         return newString;
 

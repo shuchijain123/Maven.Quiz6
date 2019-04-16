@@ -44,7 +44,7 @@ public class PowerSet<TypeOfSet> {
 
 
 
-    
+
 
     /**
      * @return `originalSet`
