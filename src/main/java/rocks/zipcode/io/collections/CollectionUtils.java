@@ -34,7 +34,7 @@ public class CollectionUtils {
 
 
         Boolean ans = true;
-        if (nestedCollection.containsAll(collection))
+        if (nestedCollection.contains(collection))
 
 
             return true;
