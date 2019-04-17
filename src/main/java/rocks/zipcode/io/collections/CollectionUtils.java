@@ -3,6 +3,7 @@ package rocks.zipcode.io.collections;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.Iterator;
 
 public class CollectionUtils {
 
@@ -33,21 +34,14 @@ public class CollectionUtils {
 
 
         Boolean ans = true;
-
-        if (Collections.disjoint(nestedCollection, collection)) {
-
-            ans = true;
-
-        } else{
+        if (nestedCollection.containsAll(collection))
 
 
-            ans = false;
+            return true;
 
+        else
+            return false;
     }
-
-    return ans;
-}
-
 
 
     /**
@@ -56,15 +50,13 @@ public class CollectionUtils {
      */
     public static Collection<? extends Collection<?>> nest(Collection<?>... collections) {
 
-     List list = new ArrayList< >();
+        Collection list = new ArrayList<>();
+
+      list =  Arrays.stream(collections).collect(Collectors.toCollection(ArrayList::new));
 
 
-
-
-    return (Collection<? extends Collection<?>>) Arrays.asList(collections).parallelStream().collect(Collectors.toCollection(() -> list));
-    }
-
-
+          return list;
+        }
 
 
 
@@ -74,8 +66,16 @@ public class CollectionUtils {
      */
     public static Collection<?> flatten(Collection<?>... collections) {
 
+        Collection colList = new ArrayList();
 
+        for (Collection s : collections) {
 
-        return null;
+          ((ArrayList) colList).addAll(s);
+
+            System.out.println("value= " + s);
+        }
+
+        return colList;
+
     }
 }

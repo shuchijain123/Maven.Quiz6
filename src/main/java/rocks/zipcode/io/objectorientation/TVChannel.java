@@ -25,29 +25,38 @@ public enum TVChannel {
 
 
     int ordinal =0;
-    TVChannel(int o){
+
+    TVChannel(int ordinal){
 
         this.ordinal=ordinal;
     }
 
 
 
-    public Integer getordinal() {
+    public Integer getordinal()
+
+    {
         return ordinal;
     }
     public static TVChannel getByOrdinal(int ordinal) {
 
         TVChannel selectedChannel=null;
 
-        if (ordinal==ordinal) {
-
-            return selectedChannel = TVChannel.values()[ordinal];
 
 
-        }
 
-        else
-             throw new java.lang.IllegalStateException();
+      if(ordinal==ordinal) {
+
+
+        selectedChannel = TVChannel.values()[ordinal];
+          return selectedChannel;
+
+      }
+
+
+  else
+
+             throw new IllegalStateException();
 
 
 

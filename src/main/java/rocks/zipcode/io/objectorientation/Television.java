@@ -14,8 +14,9 @@ public class Television {
 
     public void setChannel(Integer channel) {
 
-
        mychannel = TVChannel.getByOrdinal(channel);
+
+        throw new IllegalStateException();
 
 
 
